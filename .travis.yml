@@ -1,0 +1,18 @@
+---
+language: go
+go:
+- 1.16.x
+- tip
+- 1.15.x
+sudo: false
+
+go_import_path: github.com/dolmen-go/jsonmap
+
+#before_install:
+#- go get -t -v ./...
+
+script:
+- go test -coverprofile=coverage.txt -covermode=atomic
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
