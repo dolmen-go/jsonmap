@@ -14,7 +14,8 @@ type Ordered struct {
 	Data  map[string]interface{}
 }
 
-// MarshalJSON serialize o.Data as JSON.
+// MarshalJSON implements interface encoding/json.Marshaler.
+// MarshalJSON returns o.Data serialized as JSON.
 // The keys in o.Order are serialized first.
 // If keys not in o.Order remain, they are sorted.
 func (o Ordered) MarshalJSON() ([]byte, error) {
