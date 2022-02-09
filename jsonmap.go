@@ -100,7 +100,7 @@ func (o Ordered) MarshalJSON() ([]byte, error) {
 			if err != nil {
 				return nil, err
 			}
-			if start {
+			if !start {
 				buf.WriteByte(',')
 				start = false
 			}
